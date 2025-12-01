@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Loving Memory of Cynthia Campbell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF8F5;
+            --soft-rose: #E8DDD9;
+            --dusty-rose: #C4A99D;
+            --deep-burgundy: #6B3A3A;
+            --warm-gray: #7A7169;
+            --dark-text: #3D3835;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            background: var(--cream);
+            color: var(--dark-text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, var(--dusty-rose));
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--soft-rose);
+            box-shadow: 0 8px 32px rgba(107, 58, 58, 0.12);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .in-memory {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            color: var(--deep-burgundy);
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+        }
+
+        .dates {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.1em;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--dusty-rose);
+            margin: 48px auto;
+        }
+
+        /* Events Section */
+        .events {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 4px;
+            padding: 36px 32px;
+            box-shadow: 0 2px 16px rgba(107, 58, 58, 0.06);
+            border-left: 3px solid var(--dusty-rose);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 24px rgba(107, 58, 58, 0.1);
+        }
+
+        .event-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 1.6rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 8px;
+        }
+
+        .event-datetime {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--dusty-rose);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .event-location {
+            color: var(--dark-text);
+        }
+
+        .event-location strong {
+            font-weight: 400;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .event-address {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Donation Section */
+        .donation-section {
+            text-align: center;
+            margin-top: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, var(--soft-rose) 0%, #EDE7E4 100%);
+            border-radius: 4px;
+        }
+
+        .donation-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 16px;
+        }
+
+        .donation-section p {
+            color: var(--warm-gray);
+            margin-bottom: 24px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .donate-button {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 16px 40px;
+            background: var(--deep-burgundy);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(107, 58, 58, 0.25);
+        }
+
+        .donate-button:hover {
+            background: #5a3030;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 58, 58, 0.35);
+        }
+
+        .flower-icon {
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 48px 0;
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Dove decoration */
+        .dove {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            header {
+                padding: 40px 0 32px;
+            }
+
+            .photo-frame {
+                width: 160px;
+                height: 160px;
+            }
+
+            .event-card {
+                padding: 28px 24px;
+            }
+
+            .donation-section {
+                padding: 36px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative dove -->
+    <svg class="dove" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M85 25c-5-10-15-15-25-15-8 0-15 3-20 8L25 35c-5 5-8 12-8 20 0 15 12 27 27 27 8 0 15-3 20-8l15-17c5-5 8-12 8-20 0-4-1-8-2-12zm-25 45c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/>
+    </svg>
+
+    <div class="container">
+        <header>
+            <div class="photo-frame">
+                <img src="photo.jpg" alt="Cynthia Campbell">
+            </div>
+            <p class="in-memory">In Loving Memory</p>
+            <h1>Cynthia Campbell</h1>
+            <p class="dates">May 3, 1933 — November 5, 2025</p>
+        </header>
+
+        <div class="divider"></div>
+
+        <section class="events">
+            <article class="event-card">
+                <h2 class="event-title">Visitation</h2>
+                <p class="event-datetime">Friday, December 19th, 2025 · 4:00 – 8:00 PM</p>
+                <div class="event-location">
+                    <strong>Mission Hills Catholic Mortuary</strong>
+                    <p class="event-address">
+                        11160 Stranwood Avenue<br>
+                        Mission Hills, CA 91345
+                    </p>
+                </div>
+            </article>
+
+            <article class="event-card">
+                <h2 class="event-title">Memorial Mass</h2>
+                <p class="event-datetime">Saturday, December 20th, 2025 · 10:00 AM</p>
+                <div class="event-location">
+                    <strong>Mission San Fernando Rey De España</strong>
+                    <p class="event-address">
+                        15151 San Fernando Mission Blvd<br>
+                        Mission Hills, CA 91345
+                    </p>
+                </div>
+            </article>
+
+            <article class="event-card">
+                <h2 class="event-title">Reception</h2>
+                <p class="event-datetime">Following the Memorial Mass</p>
+                <div class="event-location">
+                    <strong>Family Residence</strong>
+                    <p class="event-address">
+                        15959 Sunburst Street<br>
+                        North Hills, CA 91343
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <section class="donation-section">
+            <h2>Flower Donations</h2>
+            <p>In lieu of flowers at the service, the family welcomes contributions to honor Cynthia's memory.</p>
+            <a href="YOUR_DONATION_LINK_HERE" class="donate-button">
+                <span class="flower-icon">✿</span>
+                Donate for Flowers
+            </a>
+        </section>
+
+        <footer>
+            <p>"Forever in our hearts"</p>
+        </footer>
+    </div>
+</body>
+</html>
